@@ -16,17 +16,19 @@
 		}
 	</style>
 	<script>
-		window.onmessage = function(event) {
-			var e = event || window.event;
-		    e.source.postMessage("Message from iframe", e.origin);
-		};
+		function sendMessage() {
+			window.onmessage = function(event) {
+				var e = event || window.event;
+		    	e.source.postMessage("Button in iframe was clicked", e.origin);
+			};
+		}
 	</script>
 </head>
 
 <body>
 	<div class="button-container">
 		<div>
-			<button id="test-button" onclick="alert('hello')">Click me</button>
+			<button id="test-button" onclick="sendMessage()">Click me</button>
 		</div>
 	</div>
 </body>
