@@ -17,8 +17,11 @@
 	</style>
 	<script>
 		function sendMessage() {
-			var e = window.event;
-			e.source.postMessage("Button in iframe was clicked", e.origin);
+			// window.onmessage = function(event) {
+			// 	var e = event || window.event;
+		 //    	e.source.postMessage("Button in iframe was clicked", e.origin);
+			// };
+			document.getElementById('test-button').contentWindow.postMessage('message','*');
 		}
 	</script>
 </head>
