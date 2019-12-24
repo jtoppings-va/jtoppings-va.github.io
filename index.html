@@ -1,0 +1,32 @@
+<head>
+	<title>Testing Website</title>
+	<style>
+		.button-container {
+			background: lightblue;
+			height: 200px;
+			width: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#test-button {
+			height: 50px;
+			width: 100px;
+			margin-bottom: 20px;
+		}
+	</style>
+	<script>
+		window.onmessage = function(event) {
+			var e = event || window.event;
+		    e.source.postMessage("Message from iframe", e.origin);
+		};
+	</script>
+</head>
+
+<body>
+	<div class="button-container">
+		<div>
+			<button id="test-button" onclick="alert('hello')">Click me</button>
+		</div>
+	</div>
+</body>
